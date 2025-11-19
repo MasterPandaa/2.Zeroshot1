@@ -1,5 +1,6 @@
-import sys
 import random
+import sys
+
 import pygame
 
 # Game configuration
@@ -166,7 +167,9 @@ def main():
             next_head = (head_x + dx, head_y + dy)
 
             # Check collisions against walls and self
-            hit_wall = not (0 <= next_head[0] < GRID_COLS and 0 <= next_head[1] < GRID_ROWS)
+            hit_wall = not (
+                0 <= next_head[0] < GRID_COLS and 0 <= next_head[1] < GRID_ROWS
+            )
             hit_self = next_head in snake
 
             if hit_wall or hit_self:
@@ -193,7 +196,9 @@ def main():
             screen.blit(overlay, (0, 0))
 
             game_over_text = big_font.render("GAME OVER", True, WHITE)
-            hint_text = font.render("Press Enter to Restart or Esc to Quit", True, WHITE)
+            hint_text = font.render(
+                "Press Enter to Restart or Esc to Quit", True, WHITE
+            )
             rect1 = game_over_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 - 20))
             rect2 = hint_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 20))
             screen.blit(game_over_text, rect1)
